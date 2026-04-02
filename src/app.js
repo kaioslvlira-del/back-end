@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://front-end-auxv.vercel.app/",
     credentials: true,
   }),
 );
@@ -26,9 +26,8 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      httpOnly: true,
-      secure: false, // true em produção (HTTPS)
-      sameSite: "lax",
+      secure: true, // obrigatório em produção
+      sameSite: "none",
     },
   }),
 );
